@@ -1,0 +1,4 @@
+body {padding-top: 60px;padding-bottom: 40px; }
+li {list-style: none;}
+#todo-list{margin-top: 30px;}
+.done label {text-decoration: line-through; color: #cccccc;}

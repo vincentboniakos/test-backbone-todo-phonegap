@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+	  <meta charset="utf-8">
+	  <title>Todo Backbone</title>
+	  <link rel="stylesheet" href="lib/vendor/bootstrap/css/bootstrap.css"/>
+	  <link rel="stylesheet" href="lib/vendor/bootstrap/css/bootstrap-responsive.css"/>
+	  <link rel="stylesheet" href="todo.css"/>
+	</head>
+
+	<body>
+
+		
+
+		<div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="#">Awesome Todos App</a>
+        </div>
+      </div>
+    </div>
+
+
+    <section id="todoapp" class="container-fluid">
+	    <section class="row-fluid">
+	      	<input id="new-todo" type="text" placeholder="What needs to be done?">
+	    	
+	    	<ul id="todo-list"></ul>
+	    </section>
+
+		</section>
+  	<script src="lib/vendor/json2.js"></script>
+  	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  	<script src="lib/vendor/underscore.js"></script>
+  	<script src="lib/vendor/backbone.js"></script>
+  	<script src="lib/vendor/backbone-localstorage.js"></script>
+  	<script src="lib/vendor/bootstrap/js/bootstrap.js"></script>
+  	<script src="todo.js"></script>
+
+
+  	<!-- Templates -->
+
+	  <script type="text/template" id="item-template">
+	    <div class="view form-inline">
+	    	<input class="toggle" type="checkbox" <%= done ? 'checked="checked"' : '' %> />
+	      <label><%- title %></label>
+	    </div>
+	    <hr class="bs-docs-separator">
+	  </script>
+
+	</body>
+</html>

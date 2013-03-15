@@ -6,12 +6,13 @@ $(function(){
 
 		defaults: function () {
 			return {
-				title: "Empty ..."
+				title: "Empty ...",
+				done: false
 			}
 		},
 
-		initialize: function () {
-			//
+		toggle: function () {
+			this.save({done: !this.get("done")});
 		}
 
 	});
@@ -35,13 +36,27 @@ $(function(){
 	var TodoView = Backbone.View.extend({
 
 		tagName: "li",
-
 		template: _.template($('#item-template').html()),
 
+
+		events: {
+			"click .toggle" : "toggleDone"
+		},
+
+		initialize: function() {
+      this.listenTo(this.model, 'change', this.render);
+    },
+
+		
 		render: function() {
       this.$el.html(this.template(this.model.toJSON()));
+      this.$el.toggleClass('done', this.model.get('done'));
       return this;
     },
+
+    toggleDone: function () {
+    	this.model.toggle();
+    }
 
 	});
 
@@ -66,7 +81,7 @@ $(function(){
       var view = new TodoView({model: todo});
       this.$("#todo-list").prepend(view.render().el);
     },
-
+		
 		addAll: function () {
 			Todos.each(this.addOne, this);
 		},
